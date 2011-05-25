@@ -50,10 +50,30 @@ public class FastTermFilterIntegrationTest extends SolrTestCaseJ4{
   }
   
   @Test 
-  public void fastTermFilterUsingContextKeyTest() {
+  public void oneToOneFilterUsingContextKey() {
     SolrQueryRequest req = req("q", "*:*", "fq", "{!fastTermFilter}idCache:ids");
     req.getContext().put("ids", new int[] {1, 2, 3});
     assertQ(req, this.getXPathforDocCount(3));
   }
+  
+  @Test 
+  public void oneToManyFilterUsingContextKey() {
+    SolrQueryRequest req = req("q", "*:*", "fq", "{!fastTermFilter}publisherIdCache:ids");
+    req.getContext().put("ids", new int[] {2, 4});
+    assertQ(req, this.getXPathforDocCount(3));
+  }
+
+  @Test 
+  public void oneToOneFilterUsingStringList() {
+    SolrQueryRequest req = req("q", "*:*", "fq", "{!fastTermFilter}idCache:[1,2,3]");
+    assertQ(req, this.getXPathforDocCount(3));
+  }
+  
+  @Test 
+  public void oneToManyFilterUsingStringList() {
+    SolrQueryRequest req = req("q", "*:*", "fq", "{!fastTermFilter}publisherIdCache:[2,4]");
+    assertQ(req, this.getXPathforDocCount(3));
+  }
+
 
 }
