@@ -62,6 +62,20 @@ public class FastTermFilterIntegrationTest extends SolrTestCaseJ4{
     req.getContext().put("ids", new int[] {2, 4});
     assertQ(req, this.getXPathforDocCount(3));
   }
+  
+  @Test 
+  public void oneToOneNegativeFilterUsingContextKey() {
+    SolrQueryRequest req = req("q", "*:*", "fq", "{!fastTermFilter}-idCache:ids");
+    req.getContext().put("ids", new int[] {1, 2, 3});
+    assertQ(req, this.getXPathforDocCount(1));
+  }
+  
+  @Test 
+  public void oneToManyNegativeFilterUsingContextKey() {
+    SolrQueryRequest req = req("q", "*:*", "fq", "{!fastTermFilter}-publisherIdCache:ids");
+    req.getContext().put("ids", new int[] {2, 4});
+    assertQ(req, this.getXPathforDocCount(1));
+  }
 
   @Test 
   public void oneToOneFilterUsingStringList() {
@@ -73,6 +87,18 @@ public class FastTermFilterIntegrationTest extends SolrTestCaseJ4{
   public void oneToManyFilterUsingStringList() {
     SolrQueryRequest req = req("q", "*:*", "fq", "{!fastTermFilter}publisherIdCache:[2,4]");
     assertQ(req, this.getXPathforDocCount(3));
+  }
+
+  @Test 
+  public void oneToOneNegativeFilterUsingStringList() {
+    SolrQueryRequest req = req("q", "*:*", "fq", "{!fastTermFilter}-idCache:[1,2,3]");
+    assertQ(req, this.getXPathforDocCount(1));
+  }
+  
+  @Test 
+  public void oneToManyNegativeFilterUsingStringList() {
+    SolrQueryRequest req = req("q", "*:*", "fq", "{!fastTermFilter}-publisherIdCache:[2,4]");
+    assertQ(req, this.getXPathforDocCount(1));
   }
 
 
