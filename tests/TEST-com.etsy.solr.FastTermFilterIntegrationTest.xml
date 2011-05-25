@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="ETSNY-L152.local" name="com.etsy.solr.FastTermFilterIntegrationTest" tests="2" time="1.095" timestamp="2011-05-25T16:09:44">
+  <properties>
+    <property name="java.vendor" value="Apple Inc." />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="jikes.class.path" value=":/System/Library/Frameworks/JavaVM.framework/Home/../Classes/alt-rt.jar:/System/Library/Frameworks/JavaVM.framework/Home/../Classes/charsets.jar:/System/Library/Frameworks/JavaVM.framework/Home/../Classes/classes.jar:/System/Library/Frameworks/JavaVM.framework/Home/../Classes/dt.jar:/System/Library/Frameworks/JavaVM.framework/Home/../Classes/jce.jar:/System/Library/Frameworks/JavaVM.framework/Home/../Classes/jconsole.jar:/System/Library/Frameworks/JavaVM.framework/Home/../Classes/jsse.jar:/System/Library/Frameworks/JavaVM.framework/Home/../Classes/management-agent.jar:/System/Library/Frameworks/JavaVM.framework/Home/../Classes/ui.jar" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Server Compiler" />
+    <property name="dist" value="/Users/giovanni/git/fastTermFilter/dist" />
+    <property name="lib" value="/Users/giovanni/git/fastTermFilter/lib" />
+    <property name="os.name" value="Mac OS X" />
+    <property name="sun.boot.class.path" value="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/jsfd.jar:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/classes.jar:/System/Library/Frameworks/JavaVM.framework/Frameworks/JavaRuntimeSupport.framework/Resources/Java/JavaRuntimeSupport.jar:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/ui.jar:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/laf.jar:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/sunrsasign.jar:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/jsse.jar:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/jce.jar:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/charsets.jar" />
+    <property name="TODAY" value="May 25 2011" />
+    <property name="java.vm.specification.vendor" value="Sun Microsystems Inc." />
+    <property name="ant.home" value="/opt/apache-ant-1.7.1" />
+    <property name="java.runtime.version" value="1.6.0_20-b02-279-10M3065" />
+    <property name="user.name" value="giovanni" />
+    <property name="ant.file.fastTermFilter" value="/Users/giovanni/git/fastTermFilter/build.xml" />
+    <property name="awt.nativeDoubleBuffering" value="true" />
+    <property name="src.java" value="/Users/giovanni/git/fastTermFilter/src/java" />
+    <property name="user.language" value="en" />
+    <property name="build" value="/var/folders/Bs/BsZAzTUAGkmHmoh2jA7Nw++++TM/-Tmp-/fastTermFilter" />
+    <property name="sun.boot.library.path" value="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Libraries" />
+    <property name="ant.project.name" value="fastTermFilter" />
+    <property name="DSTAMP" value="20110525" />
+    <property name="java.version" value="1.6.0_20" />
+    <property name="user.timezone" value="" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="java.endorsed.dirs" value="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home/lib/endorsed" />
+    <property name="sun.cpu.isalist" value="" />
+    <property name="sun.jnu.encoding" value="MacRoman" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="file.separator" value="/" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="java.class.version" value="50.0" />
+    <property name="src" value="/Users/giovanni/git/fastTermFilter/src" />
+    <property name="user.country" value="US" />
+    <property name="java.home" value="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="ant.file" value="/Users/giovanni/git/fastTermFilter/build.xml" />
+    <property name="os.version" value="10.6.4" />
+    <property name="jar.version" value="0.1.0" />
+    <property name="path.separator" value=":" />
+    <property name="java.vm.version" value="16.3-b01-279" />
+    <property name="ant.library.dir" value="/opt/apache-ant-1.7.1/lib" />
+    <property name="java.awt.printerjob" value="apple.awt.CPrinterJob" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="awt.toolkit" value="apple.awt.CToolkit" />
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="user.home" value="/Users/giovanni" />
+    <property name="java.specification.vendor" value="Sun Microsystems Inc." />
+    <property name="java.library.path" value="/Applications/YourKit_Java_Profiler_9.5.0.app/bin/mac::.:/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java" />
+    <property name="java.vendor.url" value="http://www.apple.com/" />
+    <property name="java.vm.vendor" value="Apple Inc." />
+    <property name="gopherProxySet" value="false" />
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+    <property name="java.class.path" value="/var/folders/Bs/BsZAzTUAGkmHmoh2jA7Nw++++TM/-Tmp-/fastTermFilter/test:/Users/giovanni/git/fastTermFilter/lib/commons-lang-2.5.jar:/Users/giovanni/git/fastTermFilter/lib/fastutil-6.1.0.jar:/Users/giovanni/git/fastTermFilter/lib/guava-r05.jar:/Users/giovanni/git/fastTermFilter/lib/junit-4.8.1.jar:/Users/giovanni/git/fastTermFilter/lib/log4j-1.2.15.jar:/Users/giovanni/git/fastTermFilter/lib/lucene-analyzers-common-4.0-dev-1021515.jar:/Users/giovanni/git/fastTermFilter/lib/lucene-core-4.0-dev-1021515.jar:/Users/giovanni/git/fastTermFilter/lib/lucene-highlighter-4.0-dev-958322.jar:/Users/giovanni/git/fastTermFilter/lib/lucene-spatial-4.0-dev-958322.jar:/Users/giovanni/git/fastTermFilter/lib/lucene-spellchecker-4.0-dev-1021515.jar:/Users/giovanni/git/fastTermFilter/lib/noggit-r944541.jar:/Users/giovanni/git/fastTermFilter/lib/slf4j-api-1.5.5.jar:/Users/giovanni/git/fastTermFilter/lib/slf4j-log4j12-1.5.5.jar:/Users/giovanni/git/fastTermFilter/lib/solr-commons-csv-4.0-dev-1021515.jar:/Users/giovanni/git/fastTermFilter/lib/solr-core-4.0-dev-1021515.jar:/Users/giovanni/git/fastTermFilter/lib/solr-solrj-4.0-dev-1021515.jar:/Users/giovanni/git/fastTermFilter/lib/velocity-1.6.4.jar:/Users/giovanni/git/fastTermFilter/dist/fast-term-filter-0.1.0.jar:/opt/apache-ant-1.7.1/lib/ant-launcher.jar:/opt/apache-ant-1.7.1/lib/ant.jar:/opt/apache-ant-1.7.1/lib/ant-junit.jar" />
+    <property name="ant.version" value="Apache Ant version 1.7.1 compiled on June 27 2008" />
+    <property name="TSTAMP" value="0909" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="java.vm.specification.version" value="1.0" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="sun.os.patch.level" value="unknown" />
+    <property name="src.test" value="/Users/giovanni/git/fastTermFilter/src/test" />
+    <property name="tests" value="/Users/giovanni/git/fastTermFilter/tests" />
+    <property name="java.io.tmpdir" value="/var/folders/Bs/BsZAzTUAGkmHmoh2jA7Nw++++TM/-Tmp-/" />
+    <property name="java.vendor.url.bug" value="http://bugreport.apple.com/" />
+    <property name="mrj.build" value="10M3065" />
+    <property name="os.arch" value="x86_64" />
+    <property name="java.awt.graphicsenv" value="apple.awt.CGraphicsEnvironment" />
+    <property name="java.ext.dirs" value="/Library/Java/Extensions:/System/Library/Java/Extensions:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home/lib/ext" />
+    <property name="mrj.version" value="1060.1.6.0_20-279" />
+    <property name="user.dir" value="/Users/giovanni/git/fastTermFilter" />
+    <property name="line.separator" value="
+" />
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+    <property name="basedir" value="/Users/giovanni/git/fastTermFilter" />
+    <property name="ant.java.version" value="1.6" />
+    <property name="ant.core.lib" value="/opt/apache-ant-1.7.1/lib/ant.jar" />
+    <property name="file.encoding" value="MacRoman" />
+    <property name="build.test" value="/var/folders/Bs/BsZAzTUAGkmHmoh2jA7Nw++++TM/-Tmp-/fastTermFilter/test" />
+    <property name="java.specification.version" value="1.6" />
+  </properties>
+  <testcase classname="com.etsy.solr.FastTermFilterIntegrationTest" name="findAllTest" time="0.142" />
+  <testcase classname="com.etsy.solr.FastTermFilterIntegrationTest" name="fastTermFilterUsingContextKeyTest" time="0.032" />
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[log4j:WARN No appenders could be found for logger (org.apache.solr.SolrTestCaseJ4).
+log4j:WARN Please initialize the log4j system properly.
+]]></system-err>
+</testsuite>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="fastTermFilter" default="compile" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
+    <property name="build" location="${java.io.tmpdir}/${ant.project.name}" />
+    <property name="build.test" location="${build}/test" />
+    <property name="dist" location="${basedir}/dist" />
+    <property name="src" location="${basedir}/src" />
+    <property name="src.java" location="${src}/java" />
+    <property name="src.test" location="${src}/test" />
+    <property name="tests" location="${basedir}/tests" />
+    <property name="lib" location="${basedir}/lib" />
+    <property name="jar.version" value="0.1.0"/>  
+
+    
+    <path id="compile.classpath">
+        <fileset dir="${lib}">
+            <include name="**/*.jar" />
+        </fileset>
+    </path>
+    
+    <path id="test.classpath">
+        <pathelement location="${dist}/fast-term-filter-${jar.version}.jar" />
+        <fileset dir="${lib}">
+            <include name="**/*.jar" />
+        </fileset>
+    </path>
+    
+    
+    <target name="init">
+        <tstamp />
+        <mkdir dir="${build}"/>
+        <mkdir dir="${build.test}" />   
+        <mkdir dir="${dist}"/>
+        <mkdir dir="./tests"/>
+    </target>
+    
+    <target name="clean">
+        <delete dir="${build}" />
+        <delete dir="${build.test}" />
+        <delete dir="${dist}" />
+    </target>
+  
+    
+    <target name="compile" depends="init">
+        <javac destdir="${build}" source="1.6" target="1.6" debug="true" classpathref="compile.classpath" >
+            <src path="${src.java}"/>
+        </javac>
+    </target>
+    
+    <target name="dist" depends="compile">
+        <jar jarfile="${dist}/fast-term-filter-${jar.version}.jar">
+          <fileset dir="${build}">
+            <include name="**/*.class" />
+            <include name="META-INF/*.txt" />
+          </fileset>
+          <fileset dir="src">
+            <include name="**/*.java" />
+          </fileset>
+        </jar>
+        
+    </target>
+  
+    <target name="compile-test" description="Build the test suite classes" depends="dist">
+            <javac debug="true" srcdir="${src.test}" destdir="${build.test}" classpathref="test.classpath" />
+    </target>
+    
+      <target name="test" description="Run the full test suite including DaoTests" depends="compile-test">
+        <mkdir dir="./tests"/>
+    
+        <junit dir="." failureproperty="test.failure" fork="true" forkMode="once" maxmemory="2048m">
+            <formatter type="plain" usefile="false"/>
+            <formatter type="xml"/>
+        
+            <classpath>
+                <pathelement location="${build.test}"/>         
+                <fileset dir="${lib}">
+                    <include name="**/*.jar" />
+                </fileset>      
+                <fileset dir="${dist}">
+                    <include name="**/*.jar" />
+                </fileset>      
+                
+            </classpath>
+        
+            <batchtest todir="tests">
+                <fileset dir="${build.test}">
+                    <include name="**/*Test.class"/>                
+                </fileset>
+            </batchtest>
+        </junit>
+      </target>
+    
+  
+</project>
