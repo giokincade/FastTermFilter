@@ -1,6 +1,7 @@
 package com.etsy.solr;
 
 import org.apache.solr.SolrTestCaseJ4;
+import org.apache.solr.request.SolrQueryRequest;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -50,7 +51,9 @@ public class FastTermFilterIntegrationTest extends SolrTestCaseJ4{
   
   @Test 
   public void fastTermFilterUsingContextKeyTest() {
-//    assertQ(req("*:*", ), this.getXPathforDocCount(4));
+    SolrQueryRequest req = req("q", "*:*", "fq", "{!fastTermFilter}idCache:ids");
+    req.getContext().put("ids", new int[] {1, 2, 3});
+    assertQ(req, this.getXPathforDocCount(3));
   }
 
 }

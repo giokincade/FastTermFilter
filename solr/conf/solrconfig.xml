@@ -352,6 +352,7 @@
       autowarmCount="0"/>
       
     <cache name="idCache" class="com.etsy.solr.IntToLuceneDocumentNumberCache" fieldName="id"/>
+    <cache name="publisherIdCache" class="com.etsy.solr.IntToLuceneDocumentNumberListCache" fieldName="publisher_id"/>
 
     <!-- If true, stored fields that are not requested will be loaded lazily.
       This can result in a significant speed improvement if the usual case is to
@@ -421,6 +422,20 @@
         <lst><str name="q">static firstSearcher warming query from solrconfig.xml</str></lst>
       </arr>
     </listener>
+    
+    <listener event="newSearcher" class="com.etsy.solr.CacheFillerListener">
+        <arr name="caches">
+            <str>idCache</str>
+            <str>publisherIdCache</str>
+        </arr>
+    </listener>
+    <listener event="firstSearcher" class="com.etsy.solr.CacheFillerListener">
+        <arr name="caches">
+            <str>idCache</str>
+            <str>publisherIdCache</str>
+        </arr>
+    </listener>
+    
 
     <!-- If a search request comes in and there is no current registered searcher,
          then immediately register the still warming searcher and use it.  If
@@ -1050,7 +1065,7 @@
     <int name="xsltCacheLifetimeSeconds">5</int>
   </queryResponseWriter>
 
-
+  <queryParser name="fastTermFilter"  class="com.etsy.solr.FastTermFilterQParserPlugin"/>
   <!-- example of registering a query parser
   <queryParser name="lucene" class="org.apache.solr.search.LuceneQParserPlugin"/>
   -->
